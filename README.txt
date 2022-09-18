@@ -21,5 +21,3 @@ Q1. Retrieve the top 20 movies with a minimum of 50 votes with the ranking deter
 Q2. For these 20 movies, list the persons who are most often credited and list the different titles of the 20 movies.
 
  
-
-I have used Postgres 14.1 to create a database
