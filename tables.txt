@@ -1,0 +1,66 @@
+CREATE TABLE titles_basics (
+  t_const VARCHAR(20) NOT NULL,
+  title_type VARCHAR(20) NOT NULL,
+  primary_title VARCHAR(500) NOT NULL,
+  original_title VARCHAR(500) NOT NULL,
+  is_adult BOOLEAN NOT NULL,
+  start_year INT,
+  end_year VARCHAR(20),
+  run_time_minutes INT, 
+  genres VARCHAR(400),
+  PRIMARY KEY (t_const)
+)
+
+CREATE TABLE ratings (
+   t_const VARCHAR(20),
+   average_rating FLOAT,
+   number_votes INT
+   CONSTRAINT fk_tconst
+      FOREIGN KEY(t_const)
+          REFERENCES titleS_basics(t_const)
+)
+
+
+CREATE TABLE names_basics (
+  n_const VARCHAR(20) NOT NULL,
+  primary_name VARCHAR(200) NOT NULL,
+  birth_year INT,
+  death_year VARCHAR(20),
+  primary_profession VARCHAR(500) NOT NULL,
+  known_for_titles VARCHAR(500),
+  PRIMARY KEY (n_const)
+)
+
+CREATE TABLE titles_principals (
+  t_const VARCHAR(20),
+  ordering VARCHAR(20),
+  n_const VARCHAR(20),
+  category VARCHAR(200),
+  job VARCHAR(1000),
+  characters VARCHAR(1000)
+)
+
+CREATE TABLE titles_crew (
+  t_const VARCHAR(20) NOT NULL,
+  directors VARCHAR(20) NOT NULL,
+  writers VARCHAR(20) NOT NULL,
+  CONSTRAINT fk_tconst
+      FOREIGN KEY(t_const)
+          REFERENCES titles_basics(t_const)
+)
+
+CREATE TABLE titles_akas (
+  title_id VARCHAR(50) NOT NULL,
+  ordering FLOAT NOT NULL,
+  title varchar(50) NOT NULL,
+  region varchar(50) NOT NULL,
+  language varchar(50) NOT NULL,
+  types VARCHAR(200) NOT NULL,
+  attributes VARCHAR(200),
+  is_original_title BOOLEAN NOT NULL, 
+  PRIMARY KEY (title_id)
+)
+
+
+
+
